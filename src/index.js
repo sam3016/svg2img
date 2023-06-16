@@ -1,8 +1,8 @@
-window.conversion = async (json) => {
+window.conversion = async (height, width, format, json) => {
   // call svgString2Image function
-    svgString2Image(800, 600, 'png', /* callback that gets png data URL passed to it */function (pngData) {
-      // pngData is base64 png string
-      FileMaker.PerformScriptWithOption("Get Result", pngData, 5);
+    svgString2Image(height, width, format, /* callback that gets png data URL passed to it */function (data) {
+      // data is base64 string
+      FileMaker.PerformScriptWithOption("Get Result", data, 5);
     }, json);
 };
 
